@@ -9,7 +9,7 @@ Node.js est une plateforme logicielle libre en JavaScript orientée vers les app
 ## 1. étape :
 Commencons par préparer notre projet :
 
-- Premièrement installer Node.js sur votre plateforme.
+- Premièrement installer Node.js sur votre plateforme (https://nodejs.org/en/).
 - Une foie cela fait, nous allons créer notre premier fichier node.js, nommons le "my_node.js".
 
 ----------------------------
@@ -29,7 +29,7 @@ http.createServer(function (req, res) {
   res.end('Hello World!');
 }).listen(3000);
 ```
-> Ce code va donc créer un serveur qui affiche sur la page 'Hello World' qui sera héberger sur le port 3000 localhost de votre ordinateur.
+> Ce code va donc créer un serveur qui affiche le résultat de la fonction qui lui est mis en paramètre et qui sera héberger sur le port 3000 localhost de votre ordinateur. 'req' et 'res' les arguments de la fonction sont respectivement les requetes envoyer par le client au serveur et la response que fait le serveur au client.
 
 ----------------------------
 ## 3. étape :
@@ -61,3 +61,28 @@ http.createServer(function (req, res) {
 }).listen(3000);
 ```
 > Lancez le programme pour vérifiez si cela a bien fonctionné.
+
+----------------------------
+## 6. étape :
+Voyons ensemble une dernière chose avant de finir la gestion des évènements :
+
+- Faisons un fichier à part pour tester cela 'my_event.js' et écrivons se code à l'intérieur :
+```
+var events = require('events'); // on appell le module responsable des évènement
+
+var eventEmitter = new events.EventEmitter(); //on initialiser notre utilisateur d'évènement.
+
+var myEventHandler = function () {
+  console.log('I hear a scream!');
+}
+
+eventEmitter.on('scream', myEventHandler); // appel la fonction 'myEventHandler' si un scream est réceptioné
+
+eventEmitter.emit('scream'); // envoi un scream.
+```
+> ici nous navons pas programé de serveur mais un simple code qui pour teminal à tester comme auparavent en faisant 'node my_event.js' pour avoir ce résulat :
+
+----------------------------
+## 7. étape :
+Ce sera tout pour ce worshop mais n'ésitez pas à continuez de votre coté directement à partir de la documentation officiele : https://nodejs.org/en/docs/ .
+
