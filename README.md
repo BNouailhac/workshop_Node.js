@@ -93,5 +93,82 @@ eventEmitter.emit('scream'); // envoi un scream.
 
 ----------------------------
 ## 7. étape :
+Maintenant essayons de créer un vrai project node Js en utilisant NPM (Node Package Manager) :
+
+- Nous allos commencer par faire un 'npm init' dans votre terminal dans le repo de votre project et valider toute les options par défauts.
+
+> Cela va créer un fichier 'package.json' qui va servir à memoriser toute les dépendances de notre projet :
+
+```
+{
+  "name": "workshop_Node.js", // le nom du project (par défaut le nom du répo)
+  "version": "1.0.0", // version du project
+  "description": "",
+  "main": "index.js", // nom du premier fichier à initialiser
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+```
+
+> lorsque nous ferons des instalations lors de la suite de ce workshop celle-ci seront automatiquement rajouter à ce fichier.
+
+----------------------------
+## 8. étape :
+Ajoutons maintenant le Framework express à notre projet histoire de le complexifier :
+
+- Faisons donc cette suite de commande dans le terminal pour installer ce donc nous allons avoir besoin pour la suite :
+```
+'npm install express --save'
+```
+
+----------------------------
+## 9. étape :
+Si l'instalation c'est bien passer :
+
+- Refaisons maintenant un Hello world mais avec le framework express et nomons ce nouveau fichier 'index.js' :
+```
+var express = require('express'); // on récupére le framework
+var app = express();
+
+app.get('/', function (req, res) {
+   res.send('Hello World');
+})
+
+var server = app.listen(8081, function () {
+   var host = server.address().address
+   var port = server.address().port
+})
+```
+- Pour tester ce code faite 'node index.js' et ouvrer 'http://127.0.0.1:8081/' dans n'importe qu'elle navigateur pour voir le résultat.
+
+> 'get' est une des fonctionalité du framework Express, à la réception d'un URL il envoie un réponse.
+> Ici '/' donc l'url de base et envoi comme réponse 'res.send('Hello World');' ce qui fait s'afficher 'Hello World' dans la page.
+> par example si on ajoute au code :
+
+```
+app.get('/home', (req,res) => {
+  res.send("ok")
+});
+```
+
+> alors en ce rendant à 'http://127.0.0.1:8081/home' on aura 'ok'.
+
+----------------------------
+## 10. étape :
+Express peut également nous permetre d'ajouter des images à notre serveur comme ceci :
+
+- commencer par créer un dossier nommer 'public' avec dedans un dossier 'img' et mettez dedans une image de votre choix que vous nomerez 'img01'.
+- maintenant ajouter cela au code:
+
+```
+app.use(express.static('public'));
+```
+> en ce rendant à 'http://127.0.0.1:8081/img/img01.png' verra alors l'image.
+
+----------------------------
+## 10. étape :
 Ce sera tout pour ce worshop mais n'hésitez pas à continuer de votre côté directement à partir de la documentation officielle : https://nodejs.org/en/docs/ .
 
