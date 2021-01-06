@@ -119,7 +119,8 @@ Maintenant essayons de créer un vrai project node Js en utilisant NPM (Node Pac
 ## 8. étape :
 Ajoutons maintenant le Framework express à notre projet histoire de le complexifier :
 
-- Faisons donc cette suite de commande dans le terminal pour installer ce donc nous allons avoir besoin pour la suite :
+![Framework express](https://github.com/BNouailhac/workshop_Node.js/blob/main/img/1.png)
+
 ```
 'npm install express --save'
 ```
